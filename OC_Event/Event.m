@@ -22,7 +22,6 @@ static Event* e = nil;
 };
 
 -(void) on:(NSString*) name : (callbackFunction) callback{
-    
     _callbackFunction _callback = ^(NSNotification* obj){
         callback([obj userInfo]);
     };
@@ -53,7 +52,7 @@ static Event* e = nil;
     }
     
     callbackFunction _callback = ^(id obj){
-        callback(obj);
+        callback([obj userInfo]);
         [self off:name :callback];
     };
     
